@@ -10,3 +10,4 @@
 - include: ssh.yml
 - include: fail2ban.yml
 - include: cpufreq.yml
+- include: timezone.yml
