@@ -1,4 +1,10 @@
 ---
+- name: remove ondemand service
+  service:
+    name: ondemand
+    enabled: no
+    state: stopped
+
 - name: determine cpu count
   shell: cat /proc/cpuinfo | grep processor | awk '{ print $3 }'
   register: cpu_ids
