@@ -1,0 +1,13 @@
+---
+admin_users: []
+admin_group: admins
+
+ansible_apt_dependencies:
+  - aptitude
+  - python-apt
+  - apt-transport-https
+  - ca-certificates
+  - curl
+  - software-properties-common
+  - python-passlib
+  - htop
