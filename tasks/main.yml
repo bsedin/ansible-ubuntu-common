@@ -4,10 +4,12 @@
 - include: hostname.yml
   when: hostname is defined
 
+- include: timezone.yml
+  when: timezone is defined
+
 - include: admin_users.yml
   when: admin_users is defined
 
 - include: ssh.yml
 - include: fail2ban.yml
 - include: cpufreq.yml
-- include: timezone.yml
