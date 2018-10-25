@@ -1,8 +1,7 @@
 ---
-admin_users: []
-admin_group: admins
-
-ansible_apt_dependencies:
+ubuntu_common_admin_users: []
+ubuntu_common_admin_group: admins
+ubuntu_common_install_packages:
   - aptitude
   - python-apt
   - apt-transport-https
@@ -11,3 +10,6 @@ ansible_apt_dependencies:
   - software-properties-common
   - python-passlib
   - htop
+
+ubuntu_common_setup_fail2ban: true
+ubuntu_common_cpufreq_performance: true

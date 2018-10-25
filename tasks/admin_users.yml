@@ -3,14 +3,14 @@
   user:
     name: '{{ item }}'
     shell: /bin/bash
-    groups: '{{ admin_group }}'
+    groups: '{{ ubuntu_common_admin_group }}'
     append: yes
     state: present
-  with_items: '{{ admin_users }}'
+  with_items: '{{ ubuntu_common_admin_users }}'
 
 - name: set up authorized keys for users
   authorized_key:
     user: '{{ item }}'
     state: present
     key: "{{ lookup('file', 'ssh_authorized_keys/{{ item }}') }}"
-  with_items: '{{ admin_users }}'
+  with_items: '{{ ubuntu_common_admin_users }}'

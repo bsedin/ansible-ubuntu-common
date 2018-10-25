@@ -11,5 +11,9 @@
   when: admin_users is defined
 
 - include: ssh.yml
+
 - include: fail2ban.yml
+  when: ubuntu_common_setup_fail2ban
+
 - include: cpufreq.yml
+  when: ubuntu_common_cpufreq_performance
