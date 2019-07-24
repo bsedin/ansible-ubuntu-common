@@ -2,7 +2,7 @@
 - name: set hostname based on inventory_hostname
   hostname:
     name: '{{ hostname }}'
-  when: set_hostname | default(true)
+  when: set_hostname | default(True) | bool
 
 - name: add hostname to hosts
   lineinfile:

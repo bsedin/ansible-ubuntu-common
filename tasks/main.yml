@@ -2,18 +2,18 @@
 - include: apt.yml
 
 - include: hostname.yml
-  when: hostname is defined
+  when: hostname is defined | bool
 
 - include: timezone.yml
-  when: timezone is defined
+  when: timezone is defined | bool
 
 - include: admin_users.yml
-  when: admin_users is defined
+  when: admin_users is defined | bool
 
 - include: ssh.yml
 
 - include: fail2ban.yml
-  when: ubuntu_common_setup_fail2ban
+  when: ubuntu_common_setup_fail2ban | bool
 
 - include: cpufreq.yml
-  when: ubuntu_common_cpufreq_performance
+  when: ubuntu_common_cpufreq_performance | bool
