@@ -8,7 +8,7 @@
   when: timezone is defined | bool
 
 - include: admin_users.yml
-  when: admin_users is defined | bool
+  when: ubuntu_common_admin_users is defined | bool
 
 - include: ssh.yml
 
