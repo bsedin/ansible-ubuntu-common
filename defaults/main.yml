@@ -3,13 +3,13 @@ ubuntu_common_admin_users: []
 ubuntu_common_admin_group: admins
 ubuntu_common_install_packages:
   - aptitude
-  - python-apt
   - apt-transport-https
   - ca-certificates
   - curl
   - software-properties-common
-  - python-passlib
   - htop
+  - python3-apt
+  - python3-passlib
 
 ubuntu_common_setup_fail2ban: true
 ubuntu_common_cpufreq_performance: true
