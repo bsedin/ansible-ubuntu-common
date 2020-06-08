@@ -1,0 +1,24 @@
+- name: create swapfile
+  shell: |
+    test -e /swapfile || ( \
+      fallocate -l {{ ubuntu_common_setup_swap_size }} /swapfile && \
+      chmod 600 /swapfile && \
+      mkswap /swapfile && \
+      swapon /swapfile \
+    )
+
+- name: add swapfile to fstab
+  mount:
+    src: /swapfile
+    path: none
+    fstype: swap
+    state: present
+    opts: sw
+
+- name: configure swappiness
+  sysctl:
+    name: vm.swappiness
+    value: '10'
+    sysctl_set: yes
+    state: present
+    reload: yes

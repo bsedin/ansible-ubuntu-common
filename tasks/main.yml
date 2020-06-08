@@ -17,3 +17,6 @@
 
 - include: cpufreq.yml
   when: ubuntu_common_cpufreq_performance | bool
+
+- include: swap.yml
+  when: ubuntu_common_setup_swap | bool
