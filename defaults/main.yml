@@ -14,3 +14,4 @@ ubuntu_common_install_packages:
 ubuntu_common_setup_fail2ban: true
 ubuntu_common_cpufreq_performance: true
 ubuntu_common_setup_swap: true
+ubuntu_common_setup_swapfile: true

@@ -1,22 +1,22 @@
 ---
-- include: apt.yml
+- include_tasks: apt.yml
 
-- include: hostname.yml
+- include_tasks: hostname.yml
   when: hostname is defined | bool
 
-- include: timezone.yml
+- include_tasks: timezone.yml
   when: timezone is defined | bool
 
-- include: admin_users.yml
+- include_tasks: admin_users.yml
   when: ubuntu_common_admin_users is defined | bool
 
-- include: ssh.yml
+- include_tasks: ssh.yml
 
-- include: fail2ban.yml
+- include_tasks: fail2ban.yml
   when: ubuntu_common_setup_fail2ban | bool
 
-- include: cpufreq.yml
+- include_tasks: cpufreq.yml
   when: ubuntu_common_cpufreq_performance | bool
 
-- include: swap.yml
+- include_tasks: swap.yml
   when: ubuntu_common_setup_swap | bool

@@ -6,6 +6,7 @@
       mkswap /swapfile && \
       swapon /swapfile \
     )
+  when: ubuntu_common_setup_swapfile | bool
 
 - name: add swapfile to fstab
   mount:
@@ -14,6 +15,7 @@
     fstype: swap
     state: present
     opts: sw
+  when: ubuntu_common_setup_swapfile | bool
 
 - name: configure swappiness
   sysctl:
