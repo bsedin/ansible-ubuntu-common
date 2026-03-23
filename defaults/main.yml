@@ -6,7 +6,6 @@ ubuntu_common_install_packages:
   - apt-transport-https
   - ca-certificates
   - curl
-  - software-properties-common
   - htop
   - python3-apt
   - python3-passlib
