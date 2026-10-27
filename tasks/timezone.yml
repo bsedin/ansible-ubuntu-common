@@ -1,3 +1,4 @@
-- name: set timezone to {{ timezone }}
-  timezone:
-    name: '{{ timezone }}'
+---
+- name: Set timezone to {{ timezone }}
+  community.general.timezone:
+    name: "{{ timezone }}"

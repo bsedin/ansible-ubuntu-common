@@ -1,5 +1,6 @@
-- name: create swapfile
-  shell: |
+---
+- name: Create swapfile
+  ansible.builtin.shell: |
     test -e /swapfile || ( \
       fallocate -l {{ ubuntu_common_setup_swap_size }} /swapfile && \
       chmod 600 /swapfile && \
@@ -8,8 +9,8 @@
     )
   when: ubuntu_common_setup_swapfile | bool
 
-- name: add swapfile to fstab
-  mount:
+- name: Add swapfile to fstab
+  ansible.posix.mount:
     src: /swapfile
     path: none
     fstype: swap
@@ -17,10 +18,10 @@
     opts: sw
   when: ubuntu_common_setup_swapfile | bool
 
-- name: configure swappiness
-  sysctl:
+- name: Configure swappiness
+  ansible.posix.sysctl:
     name: vm.swappiness
-    value: '10'
-    sysctl_set: yes
+    value: "10"
+    sysctl_set: true
     state: present
-    reload: yes
+    reload: true

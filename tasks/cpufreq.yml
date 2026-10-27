@@ -5,9 +5,9 @@
 #     enabled: no
 #     state: stopped
 
-- name: determine cpu count
-  shell: cat /proc/cpuinfo | grep processor | awk '{ print $3 }'
+- name: Determine cpu count
+  ansible.builtin.shell: cat /proc/cpuinfo | grep processor | awk '{ print $3 }'
   register: cpu_ids
 
-- name: set cpu governor to performance
-  shell: 'echo "{{ cpu_ids.stdout }}" | xargs -I{} sh -c "echo performance > /sys/devices/system/cpu/cpu{}/cpufreq/scaling_governor"'
+- name: Set cpu governor to performance
+  ansible.builtin.shell: 'echo "{{ cpu_ids.stdout }}" | xargs -I{} sh -c "echo performance > /sys/devices/system/cpu/cpu{}/cpufreq/scaling_governor"'

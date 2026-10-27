@@ -1,22 +1,22 @@
 ---
-- include_tasks: apt.yml
+- ansible.builtin.include_tasks: apt.yml
 
-- include_tasks: hostname.yml
+- ansible.builtin.include_tasks: hostname.yml
   when: hostname is defined | bool
 
-- include_tasks: timezone.yml
+- ansible.builtin.include_tasks: timezone.yml
   when: timezone is defined | bool
 
-- include_tasks: admin_users.yml
+- ansible.builtin.include_tasks: admin_users.yml
   when: ubuntu_common_admin_users is defined | bool
 
-- include_tasks: ssh.yml
+- ansible.builtin.include_tasks: ssh.yml
 
-- include_tasks: fail2ban.yml
+- ansible.builtin.include_tasks: fail2ban.yml
   when: ubuntu_common_setup_fail2ban | bool
 
-- include_tasks: cpufreq.yml
+- ansible.builtin.include_tasks: cpufreq.yml
   when: ubuntu_common_cpufreq_performance | bool
 
-- include_tasks: swap.yml
+- ansible.builtin.include_tasks: swap.yml
   when: ubuntu_common_setup_swap | bool

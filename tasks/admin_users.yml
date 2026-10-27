@@ -1,16 +1,16 @@
 ---
-- name: add admin users
-  user:
-    name: '{{ item }}'
+- name: Add admin users
+  ansible.builtin.user:
+    name: "{{ item }}"
     shell: /bin/bash
-    groups: '{{ ubuntu_common_admin_group }}'
-    append: yes
+    groups: "{{ ubuntu_common_admin_group }}"
+    append: true
     state: present
-  with_items: '{{ ubuntu_common_admin_users }}'
+  with_items: "{{ ubuntu_common_admin_users }}"
 
-- name: set up authorized keys for users
-  authorized_key:
-    user: '{{ item }}'
+- name: Set up authorized keys for users
+  ansible.posix.authorized_key:
+    user: "{{ item }}"
     state: present
     key: "{{ lookup('file', 'ssh_authorized_keys/{{ item }}') }}"
-  with_items: '{{ ubuntu_common_admin_users }}'
+  with_items: "{{ ubuntu_common_admin_users }}"
